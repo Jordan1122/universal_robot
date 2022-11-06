@@ -13,6 +13,8 @@
     <arg name="safety_pos_margin" default="0.15" doc="The lower/upper limits in the safety controller"/>
     <arg name="safety_k_position" default="20" doc="Used to set k position in the safety controller"/>
 
+    <!--Spawn parameters -->
+    <arg name="spawn_z" default="0.0" doc="The z coordinate of the robot in the world frame"/>
 
     <param name="robot_description" command="$(find xacro)/xacro '$(find ur_gazebo)/urdf/ur5_suction.xacro'
     joint_limit_params:=$(arg joint_limit_params)
@@ -22,6 +24,7 @@
     transmission_hw_interface:=$(arg transmission_hw_interface)
     safety_limits:=$(arg safety_limits)
     safety_pos_margin:=$(arg safety_pos_margin)
-    safety_k_position:=$(arg safety_k_position)"
+    safety_k_position:=$(arg safety_k_position)
+    spawn_z:=$(arg spawn_z)"/>
     />
 </launch>

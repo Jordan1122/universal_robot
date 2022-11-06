@@ -50,10 +50,7 @@
         />
 
 
-        <xacro:include filename="$(find bin_picking)/urdf/camera.xacro"/>
 
-
-        <xacro:include filename="$(find bin_picking)/urdf/suction_cup.xacro"/>
 
     </xacro:macro>
 </robot>

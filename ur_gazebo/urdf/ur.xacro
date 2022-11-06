@@ -43,7 +43,7 @@
       - hardware_interface/EffortJointInterface
 
     NOTE: this value must correspond to the controller configured in the
-          controller .yaml files in the 'config' directory.
+          controller .yaml files in the 'config' directory.<link name="world"/>
   -->
   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
   <xacro:arg name="safety_limits" default="false"/>

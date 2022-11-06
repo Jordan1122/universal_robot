@@ -32,10 +32,11 @@
     <xacro:include filename="$(find ur_gazebo)/urdf/ur_macro.xacro"/>
 
     <!--Declare arguments -->
-    <xacro:arg name="joint_limit_params" default=""/>
-    <xacro:arg name="physical_params" default=""/>
-    <xacro:arg name="kinematics_params" default=""/>
-    <xacro:arg name="visual_params" default=""/>
+    <xacro:arg name="joint_limit_params" default='$(find ur_description)/config/ur5/joint_limits.yaml'/>
+    <xacro:arg name="physical_params" default="$(find ur_description)/config/ur5/physical_parameters.yaml"/>
+    <xacro:arg name="kinematics_params" default="$(find ur_description)/config/ur5/default_kinematics.yaml"/>
+    <xacro:arg name="visual_params" default="$(find ur_description)/config/ur5/visual_parameters.yaml"/>
+
     <!--
       legal values:
         - hardware_interface/PositionJointInterface
@@ -49,6 +50,7 @@
     <xacro:arg name="safety_limits" default="false"/>
     <xacro:arg name="safety_pos_margin" default="0.15"/>
     <xacro:arg name="safety_k_position" default="20"/>
+    <xacro:arg name="spawn_z" default="0.0"/>
 
     <!-- Instantiate the Gazebo robot and pass it all the required arguments. -->
     <xacro:ur_robot_gazebo
@@ -75,10 +77,9 @@
     <joint name="world_joint" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0 $(arg spawn_z)" rpy="0 0 0"/>
     </joint>
 
-    <xacro:include filename="$(find bin_picking)/urdf/camera.xacro"/>
 
     <xacro:include filename="$(find bin_picking)/urdf/suction_cup.xacro"/>
 
